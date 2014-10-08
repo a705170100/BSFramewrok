@@ -7,3 +7,4 @@ D:\GitHub\BSFramewrok\DatabaseModels\bin\Debug\DatabaseModels.dll
 D:\GitHub\BSFramewrok\DatabaseModels\bin\Debug\DatabaseModels.pdb
 D:\GitHub\BSFramewrok\DatabaseModels\obj\Debug\DatabaseModels.dll
 D:\GitHub\BSFramewrok\DatabaseModels\obj\Debug\DatabaseModels.pdb
+D:\GitHub\BSFramewrok\DatabaseModels\obj\Debug\DatabaseModels.csprojResolveAssemblyReference.cache
