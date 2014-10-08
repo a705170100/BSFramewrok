@@ -53,7 +53,7 @@
                         </div>
                         <div id="mm1" style="width:150px;">
                             <div data-options="iconCls:'icon-undo'" onclick="$('#w').window('open')">添加分组</div>
-                            <div data-options="iconCls:'icon-undo'" onclick="$('#w2').window('open')">添加功能</div>
+                            <div data-options="iconCls:'icon-undo'" onclick="HrefAdd()">添加功能</div>
                             <div data-options="iconCls:'icon-redo'" onclick="DeleteAccordion()">删除</div>
                             <div class="menu-sep"></div>
                             <div>复制</div>
@@ -125,7 +125,7 @@
     <div id="w" class="easyui-window" title="Modal Window" data-options="modal:true,closed:true,iconCls:'icon-save',href:'/Home/AccordionAdd'" style="width:700px;height:400px;padding:10px;">
         The window content.
     </div>
-    <div id="w2" class="easyui-window" title="Modal Window" data-options="modal:true,closed:true,iconCls:'icon-save',href:'/SystemManage/UserCreate'" style="width:700px;height:400px;padding:10px;">
+    <div id="w2" class="easyui-window" title="Modal Window" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:700px;height:400px;padding:10px;">
         The window content.
     </div>
     <script type="text/javascript">
@@ -161,11 +161,22 @@
                         alert("删除失败");
                     },
                     success: function (data) {
-                        alert("删除成功");                                              
+                        alert("删除成功");
                         $('#dg').datagrid('reload');
                     }
                 });
             }
+        }
+
+        function HrefAdd() {
+            var row = $('#dg').datagrid('getSelected');
+            if (row) {
+                $('#w2').window({ href: '/Home/HrefAdd' });
+                $('#w2').window('open');
+            } else {
+                alert("未选中分组！");
+            }
+
         }
     </script>
 </body>

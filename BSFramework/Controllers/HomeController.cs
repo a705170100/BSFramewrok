@@ -86,7 +86,7 @@ namespace BSFramework.Controllers
                             order = int.Parse(Request.Form["accorder"])
                         };
                         context.AccordionContext.Add(a);
-                        context.SaveChanges();                      
+                        context.SaveChanges();
                     }
                     catch (Exception e) { throw e; }
 
@@ -100,16 +100,16 @@ namespace BSFramework.Controllers
         {
             // var aa = form["acctitle"];
 
-            if (Request.Form!= null)
+            if (Request.Form != null)
             {
                 using (DataBaseContext context = new DataBaseContext())
                 {
                     string Accid = Request.Form.ToString();
                     try
                     {
-                       var data= context.AccordionContext.Where(a => a.ID == Accid).FirstOrDefault();
-                       context.AccordionContext.Remove(data);                        
-                           //context.AccordionContext.Add(a);
+                        var data = context.AccordionContext.Where(a => a.ID == Accid).FirstOrDefault();
+                        context.AccordionContext.Remove(data);
+                        //context.AccordionContext.Add(a);
                         context.SaveChanges();
                     }
                     catch (Exception e) { throw e; }
@@ -131,7 +131,7 @@ namespace BSFramework.Controllers
             //    imgstring.Add(tmp);
             //    aa += tmp;
             //}
-             
+
 
             return View();
         }
@@ -208,6 +208,42 @@ namespace BSFramework.Controllers
                 }
 
             }
+        }
+
+
+        public ActionResult HrefAdd()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public void HrefCreate()
+        {
+            // var aa = form["acctitle"];
+
+            if (Request.Form["hreftitle"] != null)
+            {
+                using (DataBaseContext context = new DataBaseContext())
+                {
+                    try
+                    {
+                        context.AccordionContext.Find(Request.Form["accid"].ToString()).Hrefs.Add(new HrefModels()
+                        {
+                            ID = Guid.NewGuid().ToString(),
+                            title = Request.Form["hreftitle"].ToString(),
+                            icon = Request.Form["hreficon"].ToString(),
+                            link = Request.Form["hreflink"],
+                            iFrame=0
+                            
+                        });
+                        context.SaveChanges();
+                    }
+                    catch (Exception e) { throw e; }
+
+                }
+            }
+            //  return View("AccordionAdd");
         }
     }
 }
