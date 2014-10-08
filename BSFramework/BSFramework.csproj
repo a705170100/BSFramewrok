@@ -2868,6 +2868,7 @@
     <Content Include="Views\Home\Framework.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\AccordionManage.cshtml" />
+    <Content Include="Views\Home\HrefAdd.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
